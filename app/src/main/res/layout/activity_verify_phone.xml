@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.VerifyPhoneActivity"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/grey">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtView_VerifyPhone_Welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/tvtView_login_intro"
+        android:textColor="@color/red"
+        android:elevation="16dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_margin="16dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtView_VerifyPhone_Intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/verify_phone_textview"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_margin="16dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtView_VerifyPhone_Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/verify_phone_text_description"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_showNameCode="false"
+            app:ccp_contentColor="@color/red"
+            app:ccp_textSize="20dp">
+        </com.hbb20.CountryCodePicker>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_phoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:imeActionId="6"
+            android:imeActionLabel="Send"
+            android:imeOptions="actionUnspecified"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textSize="20sp">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_next"
+        app:cornerRadius="16dp"
+        android:elevation="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:text="@string/button_next_text"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-black"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="20dp"
+        android:layout_margin="50dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

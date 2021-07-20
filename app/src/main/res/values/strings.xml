@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TalkMessenger</string>
+    <string name="tvtView_login_intro">Bem vindo ao TextMessenger</string>
+    <string name="login_button">Login</string>
+    <string name="verify_phone_textview">Verifique seu número</string>
+    <string name="verify_phone_text_description">Por favor insira seu numero com DDD para receber o SMS de verificação:</string>
+    <string name="button_next_text">Avançar</string>
+</resources>
