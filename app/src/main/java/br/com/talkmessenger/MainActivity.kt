@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonLogin.setOnClickListener{
-            Toast.makeText(this,"Teste",Toast.LENGTH_LONG).show()
+            //Toast.makeText(this,"Teste",Toast.LENGTH_LONG).show()
             startActivity(Intent(this,VerifyPhoneActivity::class.java))
         }
     }

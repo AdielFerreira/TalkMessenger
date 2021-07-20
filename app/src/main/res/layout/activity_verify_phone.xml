@@ -7,7 +7,8 @@
     tools:context=".ui.VerifyPhoneActivity"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@color/grey">
+    android:background="@color/grey"
+    android:padding="10dp">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txtView_VerifyPhone_Welcome"
@@ -15,11 +16,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/tvtView_login_intro"
-        android:textColor="@color/red"
+        android:textColor="@color/white"
         android:elevation="16dp"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:textAlignment="center"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txtView_VerifyPhone_Intro"
@@ -58,7 +60,7 @@
             android:gravity="center"
             app:ccp_autoDetectCountry="true"
             app:ccp_showNameCode="false"
-            app:ccp_contentColor="@color/red"
+            app:ccp_contentColor="@color/black"
             app:ccp_textSize="20dp">
         </com.hbb20.CountryCodePicker>
         <com.google.android.material.textfield.TextInputEditText
@@ -80,17 +82,20 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_next"
-        app:cornerRadius="16dp"
+        android:enabled="false"
         android:elevation="8dp"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:textColor="@color/black"
         android:text="@string/button_next_text"
         android:textSize="18sp"
+        android:textStyle="normal"
         android:fontFamily="sans-serif-black"
         android:paddingHorizontal="40dp"
         android:paddingVertical="20dp"
-        android:layout_margin="50dp"/>
+        android:layout_margin="50dp"
+        app:cornerRadius="16dp"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

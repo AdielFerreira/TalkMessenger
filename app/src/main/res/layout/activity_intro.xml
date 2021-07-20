@@ -46,6 +46,6 @@
         android:fontFamily="sans-serif-black"
         android:paddingHorizontal="40dp"
         android:paddingVertical="20dp"
-        android:layout_margin="50dp"/>
+        android:layout_margin="50dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

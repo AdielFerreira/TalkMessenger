@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TalkMessenger">
-        <activity android:name=".ui.VerifyPhoneActivity"></activity>
+        <activity android:name=".ui.OtpActivity"></activity>
+        <activity android:name=".ui.VerifyPhoneActivity" />
         <activity android:name=".ui.IntroActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
