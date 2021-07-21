@@ -48,6 +48,6 @@ class VerifyPhoneActivity : AppCompatActivity() {
 
 
         startActivity(Intent(this, OtpActivity::class.java).putExtra(PHONE_NUMBER, phoneNumber))
-        finish()
+
     }
 }

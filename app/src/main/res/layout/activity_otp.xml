@@ -1,9 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.OtpActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.OtpActivity"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="@color/grey">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtView_VerifyPhone2_Title"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textSize="22sp"
+        tools:text="Verify ${NUMBERPHONE}"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtView_Counter"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_marginVertical="0dp"
+        android:text=""/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtView_VerifyPhone2_WaitMessage"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="Espere a deteção automática do código enviado por SMS para o número:"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editText_VerifyPhone2_SixDigitCode"
+        android:hint="------"
+        android:textColorHint="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textSize="22sp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtView_VerifyPhone2_SixDigitCode"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_marginVertical="0dp"
+        android:text="Digite o código de verificação de 6 dígitos"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_sendVerificationCode"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:text="@string/text_send_code_verification"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="22dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_ResendSMS"
+        android:enabled="false"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:text="@string/button_resend_sms"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="22dp"
+        android:background="@color/grey"
+        />
+</androidx.appcompat.widget.LinearLayoutCompat>

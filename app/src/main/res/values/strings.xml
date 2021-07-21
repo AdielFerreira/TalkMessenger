@@ -5,4 +5,6 @@
     <string name="verify_phone_textview">Verifique seu número</string>
     <string name="verify_phone_text_description">Por favor insira seu numero com DDD para receber o SMS de verificação:</string>
     <string name="button_next_text">Avançar</string>
+    <string name="text_send_code_verification">Enviar codigo de verificação</string>
+    <string name="button_resend_sms">Reenviar SMS</string>
 </resources>
