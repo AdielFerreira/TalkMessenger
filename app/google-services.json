@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1089053013915",
-    "project_id": "talkmessenger-643d4",
-    "storage_bucket": "talkmessenger-643d4.appspot.com"
+    "project_number": "1085511057029",
+    "project_id": "talkmessenger-f2251",
+    "storage_bucket": "talkmessenger-f2251.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1089053013915:android:0c6d6ed877d29d04cd533e",
+        "mobilesdk_app_id": "1:1085511057029:android:717e582de78169be3eb3ec",
         "android_client_info": {
           "package_name": "br.com.talkmessenger"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1089053013915-91g1k876jh1q06o0vj6j3ug0ok8uj12c.apps.googleusercontent.com",
+          "client_id": "1085511057029-d8gps7ft29pp77b6r4bjjppv9kevt5sj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC0l2nUOnH_oOq3FjciHzga8MGwwuHxUoM"
+          "current_key": "AIzaSyApgJKLC_dy5bkcOkNa8dI7gyYZLMsyLyQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1089053013915-91g1k876jh1q06o0vj6j3ug0ok8uj12c.apps.googleusercontent.com",
+              "client_id": "1085511057029-d8gps7ft29pp77b6r4bjjppv9kevt5sj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

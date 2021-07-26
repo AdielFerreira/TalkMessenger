@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.IntroActivity">
+    tools:context=".ui.IntroActivity"
+    android:background="@color/grey">
 
     <ImageView
         android:id="@+id/icon_app"
@@ -38,8 +39,8 @@
         android:elevation="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
+        android:backgroundTint="@color/red"
+        android:textColor="@color/white"
         android:text="@string/login_button"
         android:textSize="18sp"
         android:fontFamily="sans-serif-black"

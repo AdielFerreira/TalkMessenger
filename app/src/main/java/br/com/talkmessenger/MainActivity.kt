@@ -9,14 +9,9 @@ import br.com.talkmessenger.ui.VerifyPhoneActivity
 
 
 class MainActivity : AppCompatActivity() {
-    private val binding by lazy { ActivityIntroBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-
-        binding.buttonLogin.setOnClickListener{
-            //Toast.makeText(this,"Teste",Toast.LENGTH_LONG).show()
-            startActivity(Intent(this,VerifyPhoneActivity::class.java))
-        }
+        setContentView(R.layout.activity_main)
     }
 }

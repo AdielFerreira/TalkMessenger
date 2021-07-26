@@ -13,6 +13,7 @@ import androidx.core.view.isVisible
 import br.com.talkmessenger.MainActivity
 import br.com.talkmessenger.R
 import br.com.talkmessenger.databinding.ActivityOtpBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -104,7 +105,8 @@ class OtpActivity : AppCompatActivity() {
 
                 val smsCode = credential.smsCode
                 binding.editTextVerifyPhone2SixDigitCode.setText(smsCode)
-                Log.i("Verificacao completa","A verificacao foi realizada com sucesso")
+                //Log.i("Verificacao completa","A verificacao foi realizada com sucesso"
+                Toast.makeText(this@OtpActivity,"A verificacao foi realizada com sucesso",Toast.LENGTH_LONG).show()
                 singInWithAuth(credential)
             }
 
@@ -153,8 +155,14 @@ class OtpActivity : AppCompatActivity() {
             }
     }
 
+    private fun showLoginActivity(){
+        startActivity(
+            Intent(this,VerifyPhoneActivity::class.java)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
+    }
+
     private fun showSingUpActivity() {
-        startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this,SignUpActivity::class.java))
         finish()
     }
 
@@ -163,6 +171,39 @@ class OtpActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun resendVerificationCode(
+        phoneNumber: String ,token:PhoneAuthProvider.ForceResendingToken?
+    ){
+        val optionsBuilder =
+            PhoneAuthOptions.newBuilder(auth).setPhoneNumber(phoneNumber)
+            .setTimeout(60L,TimeUnit.SECONDS)
+            .setActivity(this)
+            .setCallbacks(callbacks)
+        if(token !== null){
+            optionsBuilder.setForceResendingToken(token)
+        }
+        PhoneAuthProvider.verifyPhoneNumber(optionsBuilder.build())
+    }
+
+    override fun onBackPressed() {
+
+    }
+
+    private fun notifyUserAndRetry(message: String){
+        MaterialAlertDialogBuilder(this).apply {
+            setMessage(message)
+            setPositiveButton("OK"){ _,_->
+                showLoginActivity()
+            }
+            setNegativeButton("Cancelar") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            setCancelable(false)
+            create()
+            show()
+        }
+    }
 
     //Extensions Functions
     fun Context.createDialog(message: String, isCancelable: Boolean): ProgressDialog{
@@ -171,19 +212,5 @@ class OtpActivity : AppCompatActivity() {
             setMessage(message)
             setCanceledOnTouchOutside(false)
         }
-    }
-
-    private fun resendVerificationCode(
-        phoneNumber: String
-        ,token:PhoneAuthProvider.ForceResendingToken?){
-        val optionsBuilder = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber(phoneNumber)
-            .setTimeout(60L,TimeUnit.SECONDS)
-            .setActivity(this)
-            .setCallbacks(callbacks)
-        if(token != null){
-            optionsBuilder.setForceResendingToken(token)
-        }
-        PhoneAuthProvider.verifyPhoneNumber(optionsBuilder.build())
     }
 }

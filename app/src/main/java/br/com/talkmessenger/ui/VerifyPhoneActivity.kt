@@ -34,12 +34,12 @@ class VerifyPhoneActivity : AppCompatActivity() {
         }
 
         button.setOnClickListener{
-            chekcNumber()
+            checkNumber()
         }
 
     }
 
-    private fun chekcNumber() {
+    private fun checkNumber() {
         countryCode = findViewById<CountryCodePicker>(R.id.ccp).selectedCountryCodeWithPlus
         phoneNumber = countryCode + phoneNumberEditText.text.toString()
 

@@ -7,4 +7,7 @@
     <string name="button_next_text">Avançar</string>
     <string name="text_send_code_verification">Enviar codigo de verificação</string>
     <string name="button_resend_sms">Reenviar SMS</string>
+    <string name="profile_info">Informações do Perfil</string>
+    <string name="profile_info_description">Por favor insira seu nome e foto do perfil</string>
+    <string name="input_name">Insira seu Nome Aqui</string>
 </resources>
