@@ -10,4 +10,6 @@
     <string name="profile_info">Informações do Perfil</string>
     <string name="profile_info_description">Por favor insira seu nome e foto do perfil</string>
     <string name="input_name">Insira seu Nome Aqui</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

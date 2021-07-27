@@ -11,10 +11,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import br.com.talkmessenger.MainActivity
 import br.com.talkmessenger.R
+import br.com.talkmessenger.data.User
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
 import com.google.android.material.imageview.ShapeableImageView
@@ -72,7 +72,6 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
-
         continueBtn.setOnClickListener{
             if(!::downloadUrl.isInitialized){
                 Toast.makeText(this,"Image cannot be empty",Toast.LENGTH_SHORT).show()
@@ -129,7 +128,7 @@ class SignUpActivity : AppCompatActivity() {
             data?.data?.let { image->
                 useImageView.setImageURI(image)
                 uploadImage(image)
-                Toast.makeText(this,"IMAGEM UPADA",Toast.LENGTH_LONG).show()
+                //Toast.makeText(this,"IMAGEM UPADA",Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -144,7 +143,7 @@ class SignUpActivity : AppCompatActivity() {
                 if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     openGallery()
                 }else{
-                    //Toast.makeText(this,"Permissao Negada!",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"Permissao Negada!",Toast.LENGTH_LONG).show()
                 }
             }
         }

@@ -12,12 +12,13 @@
         android:roundIcon="@drawable/ic_icons8_bt21_rj"
         android:supportsRtl="true"
         android:theme="@style/Theme.TalkMessenger">
-        <activity android:name=".ui.SignUpActivity">
+        <activity android:name=".ui.SplashScreenActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.SignUpActivity" />
         <activity android:name=".ui.OtpActivity" />
         <activity android:name=".ui.VerifyPhoneActivity" />
         <activity android:name=".ui.IntroActivity" />
