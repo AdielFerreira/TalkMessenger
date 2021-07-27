@@ -30,8 +30,8 @@ import com.google.firebase.storage.UploadTask
 class SignUpActivity : AppCompatActivity() {
 
     companion object{
-        private val PERMISSION_CODE_IMAGE_PICK = 1000
-        private val IMAGE_PICK_CODE = 1001
+        private val PERMISSION_CODE_IMAGE_PICK = 1001
+        private val IMAGE_PICK_CODE = 1000
     }
 
     val useImageView by lazy {
@@ -56,9 +56,23 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
         auth = Firebase.auth
+
+
         useImageView.setOnClickListener{
-            openGallery()
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_DENIED){
+                    val permission = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    requestPermissions(permission,PERMISSION_CODE_IMAGE_PICK)
+                }else{
+                    openGallery()
+                }
+            }else{
+                openGallery()
+            }
         }
+
+
         continueBtn.setOnClickListener{
             if(!::downloadUrl.isInitialized){
                 Toast.makeText(this,"Image cannot be empty",Toast.LENGTH_SHORT).show()
@@ -72,7 +86,6 @@ class SignUpActivity : AppCompatActivity() {
                     finish()
                 }.addOnFailureListener{
                     //TRATAR FALHA
-
                 }
             }
         }
@@ -83,19 +96,25 @@ class SignUpActivity : AppCompatActivity() {
     }
 
 
-    private fun uploadImage(image: Uri){
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_PICK_CODE)
+    }
+
+    private fun uploadImage(image: Uri) {
         continueBtn.isEnabled = false
         val ref = FirebaseStorage.getInstance().reference.child("uploads/${auth.uid.toString()}")
-        var uploadTask = ref.putFile(image)
-        uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task->
-            if(task.isSuccessful){
-                //TRATANDO ERRO DE IMAGEM
+        val uploadTask = ref.putFile(image)
+        uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
+            if (!task.isSuccessful) {
+                //Handle error
                 Log.e("Error uploading", task.exception.toString())
             }
             return@Continuation ref.downloadUrl
-        }).addOnCompleteListener{task->
-            if(task.isSuccessful){
-                continueBtn.isEnabled = true
+        }).addOnCompleteListener { task ->
+            continueBtn.isEnabled = true
+            if (task.isSuccessful) {
                 Log.e("Done uploading", task.result.toString())
                 downloadUrl = task.result.toString()
             }
@@ -104,19 +123,17 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun openGallery() {
-        val intent = Intent()
-        intent.type = "image/*"
-        startActivityForResult(intent, PERMISSION_CODE_IMAGE_PICK)
-
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
-            useImageView.setImageURI(data?.data)
+            data?.data?.let { image->
+                useImageView.setImageURI(image)
+                uploadImage(image)
+                Toast.makeText(this,"IMAGEM UPADA",Toast.LENGTH_LONG).show()
+            }
         }
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -127,7 +144,7 @@ class SignUpActivity : AppCompatActivity() {
                 if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     openGallery()
                 }else{
-                    Toast.makeText(this,"Permissao Negada!",Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this,"Permissao Negada!",Toast.LENGTH_LONG).show()
                 }
             }
         }
